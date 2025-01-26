@@ -163,7 +163,3 @@ function Cadastro() {
 }
 
 export default Cadastro
-function useContext(AuthContext: any): { usuario: any; handleLogin: any } {
-  throw new Error('Function not implemented.')
-}
-

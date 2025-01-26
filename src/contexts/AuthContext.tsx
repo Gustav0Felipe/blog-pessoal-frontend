@@ -7,7 +7,6 @@ interface AuthContextProps {
     usuario: UsuarioLogin
     handleLogout(): void
     handleLogin(usuario: UsuarioLogin): Promise<void>
-    handleCadastro(usuario: UsuarioLogin): Promise<void>
     isLoading: boolean
 }
 
@@ -41,17 +40,6 @@ export function AuthProvider({ children }: AuthProviderProps) {
         setIsLoading(false)
     }
 
-    async function handleCadastro(usuarioLogin: UsuarioLogin) {
-        setIsLoading(true)
-        try {
-            await login('/usuarios/cadastrar', usuarioLogin, setUsuario)
-            alert("O Usuário foi autenticado com sucesso!")
-        } catch (error) {
-            alert("Os Dados do usuário estão inconsistentes!")
-        }
-        setIsLoading(false)
-    }
-
     function handleLogout() {
         setUsuario({
             id: 0,
@@ -64,7 +52,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     }
 
     return (
-        <AuthContext.Provider value={{ usuario, handleLogin, handleLogout, isLoading, handleCadastro }}>
+        <AuthContext.Provider value={{ usuario, handleLogin, handleLogout, isLoading }}>
             {children}
         </AuthContext.Provider>
     )
