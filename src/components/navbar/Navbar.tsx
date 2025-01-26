@@ -20,7 +20,7 @@ function Navbar() {
                 <div className="container flex justify-between text-lg">
                     <Link to={"/home"}> Blog Pessoal </Link>
 
-                    <div className='flex gap-4'>
+                    <div>
                         {!openMenu &&
                         <button className="burguer-menu material-icons" onClick={handleClick}>menu</button>
                         }
